@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS project (
     state CHAR(2) NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT NOW(),
     sheets_count INTEGER NOT NULL DEFAULT 0,
-    status project_status NOT NULL,
+    status VARCHAR(50) NOT NULL,
 
     CONSTRAINT uk_project_name UNIQUE (name)
 );
