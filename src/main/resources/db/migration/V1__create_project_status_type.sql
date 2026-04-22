@@ -1,1 +1,0 @@
-CREATE TYPE project_status AS ENUM ('IN_PROGRESS', 'REVIEW', 'COMPLETED');
