@@ -3,14 +3,14 @@ package br.com.unifil.projeto_de_estagio_api.service;
 import br.com.unifil.projeto_de_estagio_api.dto.ProjectRequest;
 import br.com.unifil.projeto_de_estagio_api.dto.ProjectResponse;
 import br.com.unifil.projeto_de_estagio_api.dto.ProjectStatusUpdate;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface ProjectService {
 
     ProjectResponse create(ProjectRequest request);
 
-    List<ProjectResponse> findAll();
+    Page<ProjectResponse> findAll(Pageable pageable);
 
     ProjectResponse findById(Long id);
 
