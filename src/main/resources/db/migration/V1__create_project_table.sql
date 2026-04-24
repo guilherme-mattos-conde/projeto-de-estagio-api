@@ -5,10 +5,11 @@ CREATE TABLE IF NOT EXISTS project (
     city VARCHAR(100) NOT NULL,
     state CHAR(2) NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMP,
     sheets_count INTEGER NOT NULL DEFAULT 0,
     status VARCHAR(50) NOT NULL,
 
-    CONSTRAINT uk_project_name UNIQUE (name)
+    CONSTRAINT uk_project_unique UNIQUE (name, client_name, city, state)
 );
 
 CREATE INDEX IF NOT EXISTS idx_project_client ON project (client_name);

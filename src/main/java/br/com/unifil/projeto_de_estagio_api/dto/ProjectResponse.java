@@ -15,6 +15,7 @@ public class ProjectResponse {
     private String city;
     private String state;
     private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
     private Integer sheetsCount;
     private ProjectStatus status;
 }

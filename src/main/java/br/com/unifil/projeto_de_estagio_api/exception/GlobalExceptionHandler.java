@@ -50,7 +50,7 @@ public class GlobalExceptionHandler {
             HttpMessageNotReadableException ex,
             HttpServletRequest request) {
 
-        String message = "Invalid value in request body";
+        String message = "Requisição inválida. Verifique os dados enviados";
 
         String allowedValues = "";
 
@@ -58,7 +58,7 @@ public class GlobalExceptionHandler {
             allowedValues = Arrays.stream(ProjectStatus.values())
                     .map(Enum::name)
                     .collect(Collectors.joining(", "));
-            message = "Invalid status. Allowed values: " + allowedValues;
+            message = "Status inválido. Valores permitidos: " + allowedValues;
         }
 
         return ResponseEntity.badRequest()
@@ -84,7 +84,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.badRequest()
                 .body(buildError(
                         HttpStatus.BAD_REQUEST,
-                        "Invalid fields",
+                        "Campos inválidos",
                         request.getRequestURI(),
                         details
                 ));
@@ -96,7 +96,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(buildError(
                         HttpStatus.INTERNAL_SERVER_ERROR,
-                        "Unexpected error occurred",
+                        "Ocorreu um erro inesperado",
                         request.getRequestURI(),
                         null
                 ));
